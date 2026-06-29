@@ -1,0 +1,744 @@
+/* ==========================================================
+   PRODUCTS PAGE
+========================================================== */
+
+.products-page{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:28px;
+
+}
+
+/* ==========================================================
+   HEADER
+========================================================== */
+
+.products-header{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:flex-end;
+
+    gap:25px;
+
+    flex-wrap:wrap;
+
+}
+
+.page-tag{
+
+    display:inline-block;
+
+    padding:8px 18px;
+
+    background:rgba(37,99,235,.12);
+
+    color:#60a5fa;
+
+    border-radius:30px;
+
+    letter-spacing:2px;
+
+    font-size:13px;
+
+    font-weight:700;
+
+    margin-bottom:16px;
+
+}
+
+.products-header h1{
+
+    color:#ffffff;
+
+    font-size:40px;
+
+    margin-bottom:10px;
+
+}
+
+.products-header p{
+
+    color:#94a3b8;
+
+    font-size:17px;
+
+    max-width:600px;
+
+    line-height:28px;
+
+}
+
+/* ==========================================================
+   ADD BUTTON
+========================================================== */
+
+.add-btn{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:10px;
+
+    padding:14px 26px;
+
+    border:none;
+
+    border-radius:14px;
+
+    background:linear-gradient(
+        135deg,
+        #2563eb,
+        #3b82f6
+    );
+
+    color:#ffffff;
+
+    font-size:16px;
+
+    font-weight:600;
+
+    cursor:pointer;
+
+    transition:.35s;
+
+}
+
+.add-btn:hover{
+
+    transform:translateY(-3px);
+
+    box-shadow:0 15px 30px rgba(37,99,235,.35);
+
+}
+
+/* ==========================================================
+   STATS
+========================================================== */
+
+.product-stats{
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
+
+    gap:22px;
+
+}
+
+.stat-card{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:18px;
+
+    padding:25px;
+
+    background:linear-gradient(
+        145deg,
+        #111827,
+        #1e293b
+    );
+
+    border:1px solid rgba(255,255,255,.08);
+
+    border-radius:20px;
+
+    transition:.35s;
+
+}
+
+.stat-card:hover{
+
+    transform:translateY(-6px);
+
+    border-color:#2563eb;
+
+}
+
+.stat-card svg{
+
+    color:#3b82f6;
+
+}
+
+.stat-card h2{
+
+    color:#ffffff;
+
+    font-size:32px;
+
+    margin-bottom:6px;
+
+}
+
+.stat-card span{
+
+    color:#94a3b8;
+
+}
+
+.stat-card.danger svg{
+
+    color:#ef4444;
+
+}
+
+/* ==========================================================
+   SEARCH
+========================================================== */
+
+.search-bar{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:14px;
+
+    padding:16px 20px;
+
+    border-radius:18px;
+
+    background:#111827;
+
+    border:1px solid rgba(255,255,255,.08);
+
+}
+
+.search-bar svg{
+
+    color:#60a5fa;
+
+}
+
+.search-bar input{
+
+    flex:1;
+
+    background:transparent;
+
+    border:none;
+
+    outline:none;
+
+    color:#ffffff;
+
+    font-size:16px;
+
+}
+
+.search-bar input::placeholder{
+
+    color:#64748b;
+
+}
+
+/* ==========================================================
+   TABLE CARD
+========================================================== */
+
+.table-card{
+
+    background:linear-gradient(
+        145deg,
+        #111827,
+        #1e293b
+    );
+
+    border:1px solid rgba(255,255,255,.08);
+
+    border-radius:22px;
+
+    overflow:hidden;
+
+    box-shadow:0 15px 35px rgba(0,0,0,.18);
+
+}
+
+/* ==========================================================
+   TABLE
+========================================================== */
+
+.table-wrapper{
+
+    overflow-x:auto;
+
+}
+
+.table-wrapper table{
+
+    width:100%;
+
+    min-width:900px;
+
+    border-collapse:collapse;
+
+    background:#ffffff;
+
+}
+
+/* ==========================================================
+   HEADER
+========================================================== */
+
+.table-wrapper thead{
+
+    background:linear-gradient(
+        90deg,
+        #2563eb,
+        #3b82f6
+    );
+
+}
+
+.table-wrapper th{
+
+    padding:18px;
+
+    color:#ffffff;
+
+    text-align:left;
+
+    font-size:15px;
+
+}
+
+/* ==========================================================
+   BODY
+========================================================== */
+
+.table-wrapper td{
+
+    padding:18px;
+
+    color:#1f2937;
+
+    border-bottom:1px solid #e5e7eb;
+
+    font-size:15px;
+
+}
+
+.table-wrapper tbody tr:nth-child(even){
+
+    background:#f8fafc;
+
+}
+
+.table-wrapper tbody tr:hover{
+
+    background:#eff6ff;
+
+}
+
+/* ==========================================================
+   PRODUCT IMAGE
+========================================================== */
+
+.product-image{
+
+    width:65px;
+
+    height:65px;
+
+    object-fit:cover;
+
+    border-radius:14px;
+
+    border:2px solid #e5e7eb;
+
+}
+
+.no-image{
+
+    width:65px;
+
+    height:65px;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    background:#e2e8f0;
+
+    color:#64748b;
+
+    border-radius:14px;
+
+    font-size:13px;
+
+    font-weight:600;
+
+}
+
+/* ==========================================================
+   STOCK BADGE
+========================================================== */
+
+.stock-badge{
+
+    padding:8px 16px;
+
+    border-radius:30px;
+
+    font-size:13px;
+
+    font-weight:700;
+
+}
+
+.stock-badge.success{
+
+    background:#dcfce7;
+
+    color:#15803d;
+
+}
+
+.stock-badge.warning{
+
+    background:#fef3c7;
+
+    color:#b45309;
+
+}
+
+.stock-badge.danger{
+
+    background:#fee2e2;
+
+    color:#dc2626;
+
+}
+
+/* ==========================================================
+   PRICE
+========================================================== */
+
+.price{
+
+    color:#2563eb;
+
+    font-weight:700;
+
+}
+
+/* ==========================================================
+   ACTIONS
+========================================================== */
+
+.action-buttons{
+
+    display:flex;
+
+    gap:10px;
+
+}
+
+.edit-btn,
+.delete-btn{
+
+    width:40px;
+
+    height:40px;
+
+    border:none;
+
+    border-radius:10px;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+.edit-btn{
+
+    background:#dbeafe;
+
+    color:#2563eb;
+
+}
+
+.edit-btn:hover{
+
+    background:#2563eb;
+
+    color:#ffffff;
+
+}
+
+.delete-btn{
+
+    background:#fee2e2;
+
+    color:#dc2626;
+
+}
+
+.delete-btn:hover{
+
+    background:#dc2626;
+
+    color:#ffffff;
+
+}
+
+/* ==========================================================
+   LOADING
+========================================================== */
+
+.loading{
+
+    min-height:300px;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    color:#ffffff;
+
+    font-size:22px;
+
+    font-weight:600;
+
+}
+
+/* ==========================================================
+   EMPTY
+========================================================== */
+
+.empty-state{
+
+    min-height:350px;
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
+
+    align-items:center;
+
+    text-align:center;
+
+    padding:40px;
+
+}
+
+.empty-state svg{
+
+    color:#60a5fa;
+
+    margin-bottom:18px;
+
+}
+
+.empty-state h3{
+
+    color:#ffffff;
+
+    font-size:28px;
+
+    margin-bottom:10px;
+
+}
+
+.empty-state p{
+
+    color:#94a3b8;
+
+}
+
+/* ==========================================================
+   SCROLLBAR
+========================================================== */
+
+.table-wrapper::-webkit-scrollbar{
+
+    height:8px;
+
+}
+
+.table-wrapper::-webkit-scrollbar-thumb{
+
+    background:#475569;
+
+    border-radius:10px;
+
+}
+
+/* ==========================================================
+   RESPONSIVE
+========================================================== */
+
+@media(max-width:992px){
+
+.products-header{
+
+flex-direction:column;
+
+align-items:flex-start;
+
+}
+
+.products-header h1{
+
+font-size:34px;
+
+}
+
+}
+
+@media(max-width:768px){
+
+.products-header h1{
+
+font-size:28px;
+
+}
+
+.add-btn{
+
+width:100%;
+
+justify-content:center;
+
+}
+
+.search-bar{
+
+padding:14px 16px;
+
+}
+
+.product-stats{
+
+grid-template-columns:1fr;
+
+}
+
+.table-wrapper table{
+
+min-width:750px;
+
+}
+
+}
+
+@media(max-width:480px){
+
+.products-header p{
+
+font-size:15px;
+
+}
+
+.table-wrapper th,
+
+.table-wrapper td{
+
+padding:14px;
+
+font-size:14px;
+
+}
+
+.product-image,
+
+.no-image{
+
+width:55px;
+
+height:55px;
+
+}
+
+}
+
+/* ==========================================
+   FILTER BAR
+========================================== */
+
+.filter-bar{
+
+    display:flex;
+
+    gap:16px;
+
+    flex-wrap:wrap;
+
+}
+
+.filter-bar select{
+
+    min-width:220px;
+
+    padding:14px 18px;
+
+    border-radius:12px;
+
+    border:1px solid rgba(255,255,255,.08);
+
+    background:#111827;
+
+    color:#ffffff;
+
+    font-size:15px;
+
+    outline:none;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+.filter-bar select:hover{
+
+    border-color:#2563eb;
+
+}
+
+.filter-bar select:focus{
+
+    border-color:#3b82f6;
+
+    box-shadow:0 0 0 3px rgba(59,130,246,.15);
+
+}
+
+@media(max-width:768px){
+
+.filter-bar{
+
+flex-direction:column;
+
+}
+
+.filter-bar select{
+
+width:100%;
+
+}
+
+}

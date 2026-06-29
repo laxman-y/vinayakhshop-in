@@ -1,0 +1,81 @@
+.suppliers-page{
+  padding:30px;
+}
+
+.suppliers-top{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-bottom:25px;
+}
+
+.suppliers-top h1{
+  font-size:40px;
+}
+
+.suppliers-top input{
+  width:300px;
+  padding:12px;
+  border:1px solid #ddd;
+  border-radius:8px;
+}
+
+.supplier-form{
+  display:flex;
+  gap:12px;
+  flex-wrap:wrap;
+  margin-bottom:25px;
+}
+
+.supplier-form input{
+  padding:12px;
+  border:1px solid #ddd;
+  border-radius:8px;
+  width:220px;
+}
+
+.supplier-form button{
+  padding:12px 25px;
+  border:none;
+  background:#2563eb;
+  color:white;
+  border-radius:8px;
+  cursor:pointer;
+}
+
+table{
+  width:100%;
+  border-collapse:collapse;
+  background:white;
+}
+
+th{
+  background:#2563eb;
+  color:white;
+  padding:15px;
+  text-align:left;
+}
+
+td{
+  padding:15px;
+  border:1px solid #ddd;
+}
+
+.edit-btn{
+  background:orange;
+  color:white;
+  border:none;
+  padding:8px 15px;
+  margin-right:10px;
+  border-radius:6px;
+  cursor:pointer;
+}
+
+.delete-btn{
+  background:red;
+  color:white;
+  border:none;
+  padding:8px 15px;
+  border-radius:6px;
+  cursor:pointer;
+}

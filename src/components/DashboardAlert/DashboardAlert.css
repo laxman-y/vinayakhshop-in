@@ -1,0 +1,375 @@
+/* ==========================================================
+   DASHBOARD ALERT
+========================================================== */
+
+.dashboard-alert{
+
+    margin-top:30px;
+
+}
+
+/* ==========================================================
+   COMMON CARD
+========================================================== */
+
+.warning-card,
+.healthy-card{
+
+    background:linear-gradient(
+        145deg,
+        #111827,
+        #1e293b
+    );
+
+    border:1px solid rgba(255,255,255,.08);
+
+    border-radius:22px;
+
+    padding:32px;
+
+    color:#ffffff;
+
+    overflow:hidden;
+
+    position:relative;
+
+}
+
+.warning-card{
+
+    border-left:6px solid #ef4444;
+
+}
+
+.healthy-card{
+
+    border-left:6px solid #22c55e;
+
+}
+
+/* ==========================================================
+   TOP
+========================================================== */
+
+.alert-top{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin-bottom:25px;
+
+}
+
+.alert-top>div{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:15px;
+
+}
+
+.alert-top svg{
+
+    color:#3b82f6;
+
+}
+
+.alert-top h2{
+
+    margin:0;
+
+    font-size:28px;
+
+    color:#ffffff;
+
+}
+
+/* ==========================================================
+   DESCRIPTION
+========================================================== */
+
+.warning-card p,
+.healthy-card p{
+
+    color:#94a3b8;
+
+    font-size:17px;
+
+    line-height:30px;
+
+    margin-bottom:28px;
+
+}
+
+/* ==========================================================
+   REFRESH BUTTON
+========================================================== */
+
+.refresh-btn{
+
+    width:45px;
+
+    height:45px;
+
+    border:none;
+
+    border-radius:12px;
+
+    background:#1e40af;
+
+    color:#ffffff;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    cursor:pointer;
+
+    transition:.35s;
+
+}
+
+.refresh-btn:hover{
+
+    background:#2563eb;
+
+    transform:rotate(180deg);
+
+}
+
+/* ==========================================================
+   GRID
+========================================================== */
+
+.alert-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(3,1fr);
+
+    gap:20px;
+
+    margin-bottom:30px;
+
+}
+
+.alert-grid div{
+
+    background:rgba(255,255,255,.05);
+
+    border:1px solid rgba(255,255,255,.08);
+
+    border-radius:18px;
+
+    padding:24px;
+
+    text-align:center;
+
+    transition:.35s;
+
+}
+
+.alert-grid div:hover{
+
+    transform:translateY(-6px);
+
+    border-color:#2563eb;
+
+}
+
+.alert-grid svg{
+
+    color:#60a5fa;
+
+    margin-bottom:10px;
+
+}
+
+.alert-grid h3{
+
+    font-size:34px;
+
+    color:#ffffff;
+
+    margin-bottom:10px;
+
+}
+
+.alert-grid span{
+
+    color:#94a3b8;
+
+    font-size:15px;
+
+}
+
+/* ==========================================================
+   BUTTON
+========================================================== */
+
+.alert-btn{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    padding:14px 28px;
+
+    border-radius:12px;
+
+    background:linear-gradient(
+        135deg,
+        #2563eb,
+        #3b82f6
+    );
+
+    color:#ffffff;
+
+    font-weight:600;
+
+    text-decoration:none;
+
+    transition:.35s;
+
+}
+
+.alert-btn:hover{
+
+    transform:translateY(-3px);
+
+    box-shadow:0 15px 30px rgba(37,99,235,.35);
+
+}
+
+/* ==========================================================
+   LOADING
+========================================================== */
+
+.loading-card{
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    min-height:180px;
+
+    background:#111827;
+
+    color:#ffffff;
+
+    border-radius:22px;
+
+    font-size:20px;
+
+    font-weight:600;
+
+}
+
+/* ==========================================================
+   TABLET
+========================================================== */
+
+@media(max-width:992px){
+
+.alert-grid{
+
+grid-template-columns:repeat(2,1fr);
+
+}
+
+.alert-top h2{
+
+font-size:24px;
+
+}
+
+}
+
+/* ==========================================================
+   MOBILE
+========================================================== */
+
+@media(max-width:768px){
+
+.warning-card,
+.healthy-card{
+
+padding:22px;
+
+}
+
+.alert-top{
+
+flex-direction:column;
+
+align-items:flex-start;
+
+gap:20px;
+
+}
+
+.alert-grid{
+
+grid-template-columns:1fr;
+
+}
+
+.alert-grid div{
+
+padding:20px;
+
+}
+
+.alert-grid h3{
+
+font-size:30px;
+
+}
+
+.alert-btn{
+
+width:100%;
+
+}
+
+}
+
+/* ==========================================================
+   SMALL MOBILE
+========================================================== */
+
+@media(max-width:480px){
+
+.alert-top h2{
+
+font-size:22px;
+
+}
+
+.warning-card p,
+.healthy-card p{
+
+font-size:15px;
+
+line-height:26px;
+
+}
+
+.alert-grid h3{
+
+font-size:26px;
+
+}
+
+}

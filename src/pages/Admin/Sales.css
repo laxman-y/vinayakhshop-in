@@ -1,0 +1,874 @@
+/* ===========================================================
+   SALES PAGE
+=========================================================== */
+
+.sales-page{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:28px;
+
+    padding:30px;
+
+}
+
+/* ===========================================================
+   HEADER
+=========================================================== */
+
+.sales-header{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:flex-end;
+
+    flex-wrap:wrap;
+
+    gap:20px;
+
+}
+
+.sales-header h1{
+
+    color:#ffffff;
+
+    font-size:38px;
+
+    margin:10px 0;
+
+}
+
+.sales-header p{
+
+    color:#94a3b8;
+
+    font-size:15px;
+
+    line-height:28px;
+
+    max-width:700px;
+
+}
+
+/* ===========================================================
+   PAGE TAG
+=========================================================== */
+
+.page-tag{
+
+    display:inline-block;
+
+    padding:8px 18px;
+
+    border-radius:40px;
+
+    background:rgba(34,197,94,.12);
+
+    color:#4ade80;
+
+    font-size:12px;
+
+    font-weight:700;
+
+    letter-spacing:2px;
+
+}
+
+/* ===========================================================
+   DASHBOARD CARDS
+=========================================================== */
+
+.sales-stats{
+
+    display:grid;
+
+    grid-template-columns:repeat(4,1fr);
+
+    gap:20px;
+
+}
+
+.sales-card{
+
+    background:linear-gradient(
+
+        145deg,
+
+        #111827,
+
+        #1e293b
+
+    );
+
+    border:1px solid rgba(255,255,255,.08);
+
+    border-radius:22px;
+
+    padding:28px;
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:18px;
+
+    transition:.35s;
+
+}
+
+.sales-card:hover{
+
+    transform:translateY(-5px);
+
+    border-color:#22c55e;
+
+    box-shadow:0 20px 40px rgba(34,197,94,.15);
+
+}
+
+.sales-card svg{
+
+    color:#4ade80;
+
+}
+
+.sales-card h2{
+
+    color:#ffffff;
+
+    font-size:34px;
+
+}
+
+.sales-card span{
+
+    color:#94a3b8;
+
+    font-size:14px;
+
+}
+
+/* ===========================================================
+   TOOLBAR
+=========================================================== */
+
+.sales-toolbar{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    flex-wrap:wrap;
+
+    gap:20px;
+
+}
+
+.search-box{
+
+    flex:1;
+
+    min-width:280px;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:12px;
+
+    padding:14px 18px;
+
+    border-radius:16px;
+
+    background:#111827;
+
+    border:1px solid rgba(255,255,255,.08);
+
+}
+
+.search-box svg{
+
+    color:#94a3b8;
+
+}
+
+.search-box input{
+
+    width:100%;
+
+    background:none;
+
+    border:none;
+
+    outline:none;
+
+    color:white;
+
+    font-size:15px;
+
+}
+
+.filter-box{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:12px;
+
+}
+
+.filter-box svg{
+
+    color:#4ade80;
+
+}
+
+.filter-box select{
+
+    min-width:220px;
+
+    padding:13px 15px;
+
+    border-radius:14px;
+
+    background:#111827;
+
+    border:1px solid rgba(255,255,255,.08);
+
+    color:white;
+
+    outline:none;
+
+}
+
+.filter-box select:focus{
+
+    border-color:#22c55e;
+
+}
+
+/* ===========================================================
+   FORM CARD
+=========================================================== */
+
+.sales-form-card{
+
+    background:#111827;
+
+    border:1px solid rgba(255,255,255,.08);
+
+    border-radius:24px;
+
+    padding:30px;
+
+    box-shadow:0 20px 40px rgba(0,0,0,.15);
+
+}
+
+.sales-form-card h2{
+
+    color:#ffffff;
+
+    font-size:26px;
+
+    margin-bottom:25px;
+
+}
+
+/* ===========================================================
+   FORM
+=========================================================== */
+
+.sales-form{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:25px;
+
+}
+
+.form-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(2,1fr);
+
+    gap:22px;
+
+}
+
+.form-group{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:10px;
+
+}
+
+.form-group label{
+
+    color:#cbd5e1;
+
+    font-size:14px;
+
+    font-weight:600;
+
+}
+
+.form-group input,
+
+.form-group select,
+
+.remarks-section textarea{
+
+    width:100%;
+
+    padding:15px 18px;
+
+    border-radius:14px;
+
+    border:1px solid rgba(255,255,255,.08);
+
+    background:#1e293b;
+
+    color:#050505;
+
+    font-size:15px;
+
+    outline:none;
+
+    transition:.3s;
+
+}
+
+.form-group input:focus,
+
+.form-group select:focus,
+
+.remarks-section textarea:focus{
+
+    border-color:#22c55e;
+
+    box-shadow:0 0 0 4px rgba(34,197,94,.15);
+
+}
+
+.form-group input::placeholder,
+
+.remarks-section textarea::placeholder{
+
+    color:#94a3b8;
+
+}
+
+/* ===========================================================
+   TOTAL CARD
+=========================================================== */
+
+.total-card{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    min-height:54px;
+
+    border-radius:14px;
+
+    background:linear-gradient(
+
+        135deg,
+
+        #16a34a,
+
+        #22c55e
+
+    );
+
+    color:#ffffff;
+
+    font-size:24px;
+
+    font-weight:700;
+
+    letter-spacing:.5px;
+
+}
+
+/* ===========================================================
+   REMARKS
+=========================================================== */
+
+.remarks-section{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:12px;
+
+}
+
+.remarks-section label{
+
+    color:#cbd5e1;
+
+    font-weight:600;
+
+}
+
+.remarks-section textarea{
+
+    resize:vertical;
+
+    min-height:120px;
+
+}
+
+/* ===========================================================
+   ACTION BUTTONS
+=========================================================== */
+
+.sales-actions{
+
+    display:flex;
+
+    justify-content:flex-end;
+
+    align-items:center;
+
+    gap:15px;
+
+    flex-wrap:wrap;
+
+}
+
+.sales-save-btn{
+
+    min-width:220px;
+
+    height:55px;
+
+    border:none;
+
+    border-radius:16px;
+
+    background:linear-gradient(
+
+        135deg,
+
+        #16a34a,
+
+        #22c55e
+
+    );
+
+    color:white;
+
+    font-size:16px;
+
+    font-weight:700;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+.sales-save-btn:hover{
+
+    transform:translateY(-3px);
+
+    box-shadow:0 15px 30px rgba(34,197,94,.30);
+
+}
+
+.sales-save-btn:active{
+
+    transform:scale(.98);
+
+}
+/* ===========================================================
+   TABLE CARD
+=========================================================== */
+
+.sales-table-card{
+
+    background:#111827;
+
+    border:1px solid rgba(255,255,255,.08);
+
+    border-radius:24px;
+
+    padding:30px;
+
+    overflow:hidden;
+
+    box-shadow:0 20px 40px rgba(0,0,0,.15);
+
+}
+
+.table-wrapper{
+
+    width:100%;
+
+    overflow-x:auto;
+
+}
+
+.sales-table-card table{
+
+    width:100%;
+
+    border-collapse:collapse;
+
+    min-width:1100px;
+
+}
+
+.sales-table-card thead{
+
+    background:#1e293b;
+
+}
+
+.sales-table-card th{
+
+    padding:18px;
+
+    text-align:left;
+
+    color:#cbd5e1;
+
+    font-size:14px;
+
+    font-weight:700;
+
+    border-bottom:1px solid rgba(255,255,255,.08);
+
+}
+
+.sales-table-card td{
+
+    padding:18px;
+
+    color:#030303;
+
+    border-bottom:1px solid rgba(255,255,255,.05);
+
+}
+
+.sales-table-card tbody tr{
+
+    transition:.25s;
+
+}
+
+.sales-table-card tbody tr:hover{
+
+    background:#1e293b;
+
+}
+
+/* ===========================================================
+   BADGES
+=========================================================== */
+
+.badge{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    min-width:90px;
+
+    padding:8px 14px;
+
+    border-radius:30px;
+
+    font-size:13px;
+
+    font-weight:700;
+
+}
+
+.badge.paid{
+
+    background:rgba(34,197,94,.15);
+
+    color:#4ade80;
+
+}
+
+.badge.pending{
+
+    background:rgba(239,68,68,.15);
+
+    color:#f87171;
+
+}
+
+/* ===========================================================
+   ACTION BUTTONS
+=========================================================== */
+
+.action-buttons{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:10px;
+
+}
+
+.edit-btn,
+
+.delete-btn{
+
+    width:42px;
+
+    height:42px;
+
+    border:none;
+
+    border-radius:12px;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+.edit-btn{
+
+    background:#2563eb;
+
+    color:white;
+
+}
+
+.edit-btn:hover{
+
+    background:#1d4ed8;
+
+    transform:translateY(-2px);
+
+}
+
+.delete-btn{
+
+    background:#dc2626;
+
+    color:white;
+
+}
+
+.delete-btn:hover{
+
+    background:#b91c1c;
+
+    transform:translateY(-2px);
+
+}
+
+/* ===========================================================
+   EMPTY ROW
+=========================================================== */
+
+.empty-row{
+
+    text-align:center;
+
+    padding:45px;
+
+    color:#94a3b8;
+
+    font-size:16px;
+
+}
+
+/* ===========================================================
+   SCROLLBAR
+=========================================================== */
+
+.table-wrapper::-webkit-scrollbar{
+
+    height:8px;
+
+}
+
+.table-wrapper::-webkit-scrollbar-thumb{
+
+    background:#334155;
+
+    border-radius:20px;
+
+}
+
+.table-wrapper::-webkit-scrollbar-track{
+
+    background:#111827;
+
+}
+
+/* ===========================================================
+   RESPONSIVE
+=========================================================== */
+
+@media(max-width:1200px){
+
+    .sales-stats{
+
+        grid-template-columns:repeat(2,1fr);
+
+    }
+
+}
+
+@media(max-width:768px){
+
+    .sales-page{
+
+        padding:20px;
+
+    }
+
+    .sales-header{
+
+        flex-direction:column;
+
+        align-items:flex-start;
+
+    }
+
+    .sales-header h1{
+
+        font-size:30px;
+
+    }
+
+    .sales-stats{
+
+        grid-template-columns:1fr;
+
+    }
+
+    .form-grid{
+
+        grid-template-columns:1fr;
+
+    }
+
+    .sales-toolbar{
+
+        flex-direction:column;
+
+        align-items:stretch;
+
+    }
+
+    .filter-box{
+
+        width:100%;
+
+    }
+
+    .filter-box select{
+
+        width:100%;
+
+    }
+
+    .sales-actions{
+
+        justify-content:center;
+
+    }
+
+    .sales-save-btn{
+
+        width:100%;
+
+    }
+
+}
+
+/* ===========================================================
+   ANIMATION
+=========================================================== */
+
+.sales-card,
+
+.sales-form-card,
+
+.sales-table-card{
+
+    animation:fadeUp .5s ease;
+
+}
+
+@keyframes fadeUp{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(20px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+}
+
+.invoice-btn{
+
+background:#2563eb;
+
+color:#fff;
+
+border:none;
+
+padding:8px 10px;
+
+border-radius:6px;
+
+cursor:pointer;
+
+transition:.3s;
+
+}
+
+.invoice-btn:hover{
+
+background:#1d4ed8;
+
+}

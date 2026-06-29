@@ -1,0 +1,537 @@
+/* ==========================================
+   NAVBAR
+========================================== */
+
+.navbar{
+
+    position:sticky;
+
+    top:0;
+
+    left:0;
+
+    width:100%;
+
+    z-index:1000;
+
+    background:#0f172a;
+
+    border-bottom:1px solid rgba(255,255,255,.08);
+
+    backdrop-filter:blur(16px);
+
+}
+
+.navbar-container{
+
+    max-width:1400px;
+
+    margin:auto;
+
+    padding:14px 35px;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    gap:25px;
+
+}
+
+/* ==========================================
+   LOGO
+========================================== */
+
+.logo{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:14px;
+
+    text-decoration:none;
+
+    flex-shrink:0;
+
+}
+
+.logo-image{
+
+    width:62px;
+
+    height:62px;
+
+    border-radius:50%;
+
+    background:#fff;
+
+    object-fit:cover;
+
+    padding:4px;
+
+}
+
+.logo-text h1{
+
+    margin:0;
+
+    color:#fff;
+
+    font-size:22px;
+
+    font-weight:800;
+
+    line-height:1;
+
+}
+
+.logo-text p{
+
+    margin-top:5px;
+
+    color:#cbd5e1;
+
+    text-transform:uppercase;
+
+    letter-spacing:2px;
+
+    font-size:13px;
+
+}
+
+/* ==========================================
+   MENU
+========================================== */
+
+.desktop-menu{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:32px;
+
+}
+
+.desktop-menu a{
+
+    color:#fff;
+
+    text-decoration:none;
+
+    font-size:16px;
+
+    font-weight:600;
+
+    transition:.3s;
+
+    position:relative;
+
+}
+
+.desktop-menu a::after{
+
+    content:"";
+
+    position:absolute;
+
+    left:0;
+
+    bottom:-8px;
+
+    width:0;
+
+    height:2px;
+
+    background:#3b82f6;
+
+    transition:.3s;
+
+}
+
+.desktop-menu a:hover{
+
+    color:#60a5fa;
+
+}
+
+.desktop-menu a:hover::after{
+
+    width:100%;
+
+}
+
+/* ==========================================
+   RIGHT
+========================================== */
+
+.navbar-right{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:15px;
+
+}
+
+/* ==========================================
+   SEARCH
+========================================== */
+
+.search-box{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:10px;
+
+    background:rgba(255,255,255,.08);
+
+    border:1px solid rgba(255,255,255,.12);
+
+    border-radius:14px;
+
+    padding:10px 15px;
+
+    color:#cbd5e1;
+
+}
+
+.search-box input{
+
+    border:none;
+
+    outline:none;
+
+    background:transparent;
+
+    color:#fff;
+
+    width:180px;
+
+    font-size:15px;
+
+}
+
+.search-box input::placeholder{
+
+    color:#94a3b8;
+
+}
+
+/* ==========================================
+   BUTTONS
+========================================== */
+
+.login-btn,
+.dashboard-btn,
+.logout-btn{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    gap:8px;
+
+    border:none;
+
+    cursor:pointer;
+
+    border-radius:10px;
+
+    padding:11px 22px;
+
+    font-size:15px;
+
+    font-weight:700;
+
+    transition:.3s;
+
+}
+
+.login-btn{
+
+    background:#2563eb;
+
+    color:#fff;
+
+}
+
+.login-btn:hover{
+
+    background:#1d4ed8;
+
+}
+
+.dashboard-btn{
+
+    background:#15803d;
+
+    color:#fff;
+
+}
+
+.dashboard-btn:hover{
+
+    background:#166534;
+
+}
+
+.logout-btn{
+
+    background:#dc2626;
+
+    color:#fff;
+
+}
+
+.logout-btn:hover{
+
+    background:#b91c1c;
+
+}
+
+/* ==========================================
+   MOBILE BUTTON
+========================================== */
+
+.mobile-menu-btn{
+
+    display:none;
+
+    background:none;
+
+    border:none;
+
+    color:#fff;
+
+    cursor:pointer;
+
+}
+
+/* ==========================================
+   MOBILE MENU
+========================================== */
+
+.mobile-menu{
+
+    display:none;
+
+}
+
+/* ==========================================
+   TABLET
+========================================== */
+
+@media(max-width:1100px){
+
+.search-box{
+
+display:none;
+
+}
+
+.desktop-menu{
+
+gap:22px;
+
+}
+
+}
+
+/* ==========================================
+   MOBILE
+========================================== */
+
+@media(max-width:900px){
+
+.desktop-menu{
+
+display:none;
+
+}
+
+.navbar-right{
+
+display:none;
+
+}
+
+.mobile-menu-btn{
+
+display:flex;
+
+}
+
+.logo-image{
+
+width:48px;
+
+height:48px;
+
+}
+
+.logo-text h1{
+
+font-size:20px;
+
+}
+
+.logo-text p{
+
+font-size:11px;
+
+letter-spacing:1px;
+
+}
+
+.navbar-container{
+
+padding:12px 18px;
+
+}
+
+.mobile-menu{
+
+display:flex;
+
+flex-direction:column;
+
+background:#111827;
+
+overflow:hidden;
+
+max-height:0;
+
+transition:max-height .4s ease;
+
+}
+
+.mobile-menu.active{
+
+max-height:650px;
+
+padding:20px;
+
+}
+
+.mobile-menu a{
+
+text-decoration:none;
+
+color:#fff;
+
+font-size:17px;
+
+padding:14px 0;
+
+border-bottom:1px solid rgba(255,255,255,.08);
+
+}
+
+.mobile-search{
+
+display:flex;
+
+align-items:center;
+
+gap:10px;
+
+margin:20px 0;
+
+padding:12px;
+
+border-radius:10px;
+
+background:#1e293b;
+
+color:#cbd5e1;
+
+}
+
+.mobile-search input{
+
+flex:1;
+
+border:none;
+
+outline:none;
+
+background:none;
+
+color:#fff;
+
+}
+
+.mobile-search input::placeholder{
+
+color:#94a3b8;
+
+}
+
+.mobile .login-btn,
+
+.mobile .dashboard-btn,
+
+.mobile .logout-btn,
+
+.mobile-menu .login-btn,
+
+.mobile-menu .dashboard-btn,
+
+.mobile-menu .logout-btn{
+
+width:100%;
+
+margin-top:12px;
+
+}
+
+}
+
+/* ==========================================
+   SMALL MOBILE
+========================================== */
+
+@media(max-width:500px){
+
+.logo{
+
+gap:10px;
+
+}
+
+.logo-image{
+
+width:42px;
+
+height:42px;
+
+}
+
+.logo-text h1{
+
+font-size:18px;
+
+}
+
+.logo-text p{
+
+font-size:10px;
+
+}
+
+.navbar-container{
+
+padding:10px 14px;
+
+}
+
+}

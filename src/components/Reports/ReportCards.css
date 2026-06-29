@@ -1,0 +1,220 @@
+/* ===========================================
+   REPORT DASHBOARD
+=========================================== */
+
+.report-card-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+
+    gap:24px;
+
+    padding:30px;
+
+}
+
+/* ===========================================
+   CARD
+=========================================== */
+
+.report-card{
+
+    position:relative;
+
+    overflow:hidden;
+
+    padding:28px;
+
+    border-radius:22px;
+
+    background:linear-gradient(
+        145deg,
+        #111827,
+        #1e293b
+    );
+
+    border:1px solid rgba(255,255,255,.08);
+
+    transition:.35s;
+
+    cursor:pointer;
+
+}
+
+.report-card:hover{
+
+    transform:translateY(-6px);
+
+    box-shadow:0 25px 45px rgba(0,0,0,.25);
+
+}
+
+.report-card::before{
+
+    content:"";
+
+    position:absolute;
+
+    top:0;
+
+    left:0;
+
+    width:6px;
+
+    height:100%;
+
+    background:#3b82f6;
+
+}
+
+.report-card:nth-child(2)::before{
+
+    background:#16a34a;
+
+}
+
+.report-card:nth-child(3)::before{
+
+    background:#dc2626;
+
+}
+
+.report-card:nth-child(4)::before{
+
+    background:#9333ea;
+
+}
+
+.report-card:nth-child(5)::before{
+
+    background:#f59e0b;
+
+}
+
+.report-card:nth-child(6)::before{
+
+    background:#0891b2;
+
+}
+
+.report-card h4{
+
+    color:#94a3b8;
+
+    font-size:15px;
+
+    font-weight:600;
+
+    margin-bottom:18px;
+
+    letter-spacing:.5px;
+
+}
+
+.report-card h2{
+
+    font-size:34px;
+
+    font-weight:700;
+
+}
+/* ===========================================
+   HOVER EFFECT
+=========================================== */
+
+.report-card::after{
+
+    content:"";
+
+    position:absolute;
+
+    right:-40px;
+
+    bottom:-40px;
+
+    width:140px;
+
+    height:140px;
+
+    border-radius:50%;
+
+    background:rgba(255,255,255,.04);
+
+    transition:.35s;
+
+}
+
+.report-card:hover::after{
+
+    transform:scale(1.3);
+
+}
+
+/* ===========================================
+   ANIMATION
+=========================================== */
+
+.report-card{
+
+    animation:fadeUp .45s ease;
+
+}
+
+@keyframes fadeUp{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(20px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+}
+
+/* ===========================================
+   RESPONSIVE
+=========================================== */
+
+@media(max-width:992px){
+
+    .report-card-grid{
+
+        grid-template-columns:repeat(2,1fr);
+
+    }
+
+}
+
+@media(max-width:768px){
+
+    .report-card-grid{
+
+        grid-template-columns:1fr;
+
+        padding:20px;
+
+    }
+
+    .report-card{
+
+        padding:22px;
+
+    }
+
+    .report-card h2{
+
+        font-size:28px;
+
+    }
+
+}

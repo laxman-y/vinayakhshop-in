@@ -1,0 +1,63 @@
+* {
+
+    margin: 0;
+
+    padding: 0;
+
+    box-sizing: border-box;
+
+    font-family: Arial, Helvetica, sans-serif;
+
+}
+
+body {
+
+    margin: 0;
+
+    padding: 0;
+
+    background: #0f172a;
+
+    overflow-x: hidden;
+
+    color: #fff;
+
+}
+
+a {
+
+    text-decoration: none;
+
+    color: inherit;
+
+}
+
+button {
+
+    cursor: pointer;
+
+}
+
+img {
+
+    max-width: 100%;
+
+    display: block;
+
+}
+
+ul {
+
+    list-style: none;
+
+}
+
+.container {
+
+    width: 90%;
+
+    max-width: 1400px;
+
+    margin: auto;
+
+}

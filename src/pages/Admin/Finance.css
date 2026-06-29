@@ -1,0 +1,33 @@
+.finance-page{
+  padding:30px;
+}
+
+.finance-page h1{
+  font-size:3rem;
+  margin-bottom:30px;
+}
+
+.finance-grid{
+  display:grid;
+  grid-template-columns:
+  repeat(auto-fit,minmax(250px,1fr));
+  gap:25px;
+}
+
+.finance-card{
+  background:white;
+  padding:25px;
+  border-radius:15px;
+  box-shadow:
+  0 5px 15px rgba(0,0,0,.08);
+}
+
+.finance-card h3{
+  color:#666;
+  margin-bottom:15px;
+}
+
+.finance-card h2{
+  color:#3465eb;
+  font-size:2rem;
+}

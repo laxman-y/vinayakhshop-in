@@ -1,0 +1,106 @@
+@media print {
+
+    body {
+
+        background: white !important;
+
+    }
+
+    .sidebar,
+    .navbar,
+    header,
+    footer,
+    button,
+    .sales-toolbar,
+    .report-tabs {
+
+        display: none !important;
+
+    }
+
+    .reports-page {
+
+        padding: 0 !important;
+
+        margin: 0 !important;
+
+        background: white !important;
+
+    }
+
+    .report-card-grid {
+
+        display: none;
+
+    }
+
+    .sales-summary {
+
+        display: grid;
+
+        grid-template-columns: repeat(3, 1fr);
+
+        gap: 15px;
+
+        margin-bottom: 20px;
+
+    }
+
+    .sales-summary div {
+
+        box-shadow: none !important;
+
+        border: 1px solid #ddd;
+
+    }
+
+    .sales-report,
+    .purchase-report,
+    .expense-report,
+    .inventory-report,
+    .profit-report {
+
+        box-shadow: none !important;
+
+        padding: 0;
+
+    }
+
+    .table-wrapper {
+
+        overflow: visible !important;
+
+        max-height: none !important;
+
+    }
+
+    table {
+
+        width: 100%;
+
+        border-collapse: collapse;
+
+    }
+
+    th {
+
+        background: #2563eb !important;
+
+        color: white !important;
+
+        -webkit-print-color-adjust: exact;
+
+        print-color-adjust: exact;
+
+    }
+
+    th,
+    td {
+
+        border: 1px solid #ccc;
+
+        padding: 10px;
+
+    }
+
+}

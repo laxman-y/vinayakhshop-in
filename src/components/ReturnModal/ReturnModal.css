@@ -1,0 +1,46 @@
+.return-overlay{
+position:fixed;
+inset:0;
+background:rgba(0,0,0,.5);
+display:flex;
+justify-content:center;
+align-items:center;
+z-index:999;
+}
+
+.return-modal{
+width:700px;
+max-height:90vh;
+overflow:auto;
+background:#fff;
+padding:25px;
+border-radius:10px;
+}
+
+.return-item{
+border:1px solid #ddd;
+padding:15px;
+margin-bottom:15px;
+border-radius:8px;
+}
+
+.return-item input,
+.return-item select,
+.return-item textarea{
+width:100%;
+padding:10px;
+margin-top:8px;
+margin-bottom:10px;
+}
+
+.return-actions{
+display:flex;
+justify-content:flex-end;
+gap:10px;
+margin-top:20px;
+}
+
+.return-actions button{
+padding:10px 20px;
+cursor:pointer;
+}

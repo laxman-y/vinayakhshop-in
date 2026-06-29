@@ -1,0 +1,463 @@
+/* ===========================================
+   DASHBOARD
+=========================================== */
+
+.dashboard{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:30px;
+
+}
+
+/* ===========================================
+   HEADER
+=========================================== */
+
+.dashboard-header{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    gap:30px;
+
+}
+
+.dashboard-tag{
+
+    display:inline-block;
+
+    padding:8px 18px;
+
+    border-radius:40px;
+
+    background:rgba(37,99,235,.15);
+
+    color:#60a5fa;
+
+    font-size:13px;
+
+    font-weight:700;
+
+    letter-spacing:2px;
+
+    margin-bottom:18px;
+
+}
+
+.dashboard-header h1{
+
+    color:#ffffff;
+
+    font-size:42px;
+
+    font-weight:700;
+
+    margin-bottom:12px;
+
+}
+
+.dashboard-header p{
+
+    color:#94a3b8;
+
+    font-size:18px;
+
+    line-height:30px;
+
+    max-width:650px;
+
+}
+
+/* ===========================================
+   CARDS
+=========================================== */
+
+.dashboard-cards{
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+
+    gap:22px;
+
+}
+
+.dashboard-card{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:22px;
+
+    padding:28px;
+
+    border-radius:22px;
+
+    background:linear-gradient(
+
+        145deg,
+
+        #111827,
+
+        #1e293b
+
+    );
+
+    border:1px solid rgba(255,255,255,.08);
+
+    transition:.35s;
+
+    position:relative;
+
+    overflow:hidden;
+
+}
+
+.dashboard-card::before{
+
+    content:"";
+
+    position:absolute;
+
+    top:0;
+
+    left:0;
+
+    width:6px;
+
+    height:100%;
+
+    background:#2563eb;
+
+}
+
+.dashboard-card:hover{
+
+    transform:translateY(-8px);
+
+    box-shadow:0 18px 35px rgba(37,99,235,.25);
+
+}
+
+.card-icon{
+
+    width:72px;
+
+    height:72px;
+
+    border-radius:18px;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    background:linear-gradient(
+
+        135deg,
+
+        #2563eb,
+
+        #3b82f6
+
+    );
+
+    color:#ffffff;
+
+    flex-shrink:0;
+
+}
+
+.dashboard-card h4{
+
+    color:#94a3b8;
+
+    font-size:16px;
+
+    margin-bottom:10px;
+
+    font-weight:500;
+
+}
+
+.dashboard-card h2{
+
+    color:#ffffff;
+
+    font-size:34px;
+
+    font-weight:700;
+
+}
+
+/* ===========================================
+   CHARTS
+=========================================== */
+
+.dashboard > section,
+
+.dashboard > .chart,
+
+.dashboard > .charts{
+
+    background:#111827;
+
+    border-radius:22px;
+
+    padding:28px;
+
+    border:1px solid rgba(255,255,255,.08);
+
+}
+
+/* ===========================================
+   TABLES
+=========================================== */
+
+.dashboard table{
+
+    width:100%;
+
+    border-collapse:collapse;
+
+    background:#ffffff;
+
+    border-radius:18px;
+
+    overflow:hidden;
+
+}
+
+.dashboard table thead{
+
+    background:#2563eb;
+
+}
+
+.dashboard table th{
+
+    color:#ffffff;
+
+    padding:18px;
+
+    text-align:left;
+
+    font-size:15px;
+
+}
+
+.dashboard table td{
+
+    color:#1f2937;
+
+    padding:18px;
+
+    border-bottom:1px solid #e5e7eb;
+
+}
+
+.dashboard table tbody tr:hover{
+
+    background:#f8fafc;
+
+}
+
+/* ===========================================
+   ALERT CARD
+=========================================== */
+
+.dashboard-alert{
+
+    background:linear-gradient(
+
+        145deg,
+
+        #111827,
+
+        #1e293b
+
+    );
+
+    border-radius:22px;
+
+    border-left:5px solid #ef4444;
+
+    padding:30px;
+
+    color:#ffffff;
+
+}
+
+/* ===========================================
+   LOADING
+=========================================== */
+
+.dashboard-loading{
+
+    height:75vh;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    color:#ffffff;
+
+    font-size:28px;
+
+    font-weight:700;
+
+}
+
+/* ===========================================
+   SPACING
+=========================================== */
+
+.dashboard>*{
+
+    margin:0;
+
+}
+
+/* ===========================================
+   TABLET
+=========================================== */
+
+@media(max-width:992px){
+
+.dashboard-header{
+
+flex-direction:column;
+
+align-items:flex-start;
+
+}
+
+.dashboard-header h1{
+
+font-size:34px;
+
+}
+
+.dashboard-card{
+
+padding:24px;
+
+}
+
+}
+
+/* ===========================================
+   MOBILE
+=========================================== */
+
+@media(max-width:768px){
+
+.dashboard{
+
+gap:20px;
+
+}
+
+.dashboard-header h1{
+
+font-size:28px;
+
+}
+
+.dashboard-header p{
+
+font-size:15px;
+
+line-height:25px;
+
+}
+
+.dashboard-cards{
+
+grid-template-columns:1fr;
+
+}
+
+.dashboard-card{
+
+padding:20px;
+
+gap:16px;
+
+}
+
+.card-icon{
+
+width:60px;
+
+height:60px;
+
+}
+
+.dashboard-card h2{
+
+font-size:28px;
+
+}
+
+.dashboard table{
+
+display:block;
+
+overflow-x:auto;
+
+white-space:nowrap;
+
+}
+
+}
+
+/* ===========================================
+   SMALL MOBILE
+=========================================== */
+
+@media(max-width:480px){
+
+.dashboard-header h1{
+
+font-size:24px;
+
+}
+
+.dashboard-tag{
+
+font-size:11px;
+
+}
+
+.dashboard-card{
+
+padding:18px;
+
+}
+
+.card-icon{
+
+width:55px;
+
+height:55px;
+
+}
+
+.dashboard-card h2{
+
+font-size:24px;
+
+}
+
+}

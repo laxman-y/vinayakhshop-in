@@ -1,0 +1,660 @@
+/* ===========================================
+   INVENTORY PAGE
+=========================================== */
+
+.inventory-page{
+
+    padding:30px;
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:28px;
+
+}
+
+/* ===========================================
+   HEADER
+=========================================== */
+
+.inventory-header{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:flex-end;
+
+    flex-wrap:wrap;
+
+    gap:20px;
+
+}
+
+.inventory-header h1{
+
+    color:#ffffff;
+
+    font-size:38px;
+
+    margin:10px 0;
+
+}
+
+.inventory-header p{
+
+    color:#94a3b8;
+
+    max-width:700px;
+
+    line-height:28px;
+
+}
+
+.page-tag{
+
+    display:inline-block;
+
+    padding:8px 18px;
+
+    border-radius:40px;
+
+    background:rgba(34,197,94,.12);
+
+    color:#4ade80;
+
+    font-size:12px;
+
+    font-weight:700;
+
+    letter-spacing:2px;
+
+}
+
+/* ===========================================
+   DASHBOARD CARDS
+=========================================== */
+
+.inventory-stats{
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+
+    gap:20px;
+
+}
+
+.inventory-card{
+
+    background:#111827;
+
+    border:1px solid rgba(255,255,255,.08);
+
+    border-radius:20px;
+
+    padding:28px;
+
+    transition:.3s;
+
+}
+
+.inventory-card:hover{
+
+    transform:translateY(-5px);
+
+    border-color:#22c55e;
+
+    box-shadow:0 20px 40px rgba(34,197,94,.15);
+
+}
+
+.inventory-card svg{
+
+    color:#4ade80;
+
+    margin-bottom:15px;
+
+}
+
+.inventory-card h2{
+
+    color:white;
+
+    font-size:32px;
+
+    margin-bottom:8px;
+
+}
+
+.inventory-card span{
+
+    color:#94a3b8;
+
+}
+
+/* ===========================================
+   TOOLBAR
+=========================================== */
+
+.inventory-toolbar{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    gap:20px;
+
+    flex-wrap:wrap;
+
+}
+
+.search-box{
+
+    flex:1;
+
+    min-width:280px;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:12px;
+
+    background:#111827;
+
+    border:1px solid rgba(255,255,255,.08);
+
+    border-radius:16px;
+
+    padding:14px 18px;
+
+}
+
+.search-box svg{
+
+    color:#94a3b8;
+
+}
+
+.search-box input{
+
+    width:100%;
+
+    background:none;
+
+    border:none;
+
+    outline:none;
+
+    color:white;
+
+}
+
+.filter-box select{
+
+    padding:14px 18px;
+
+    border-radius:14px;
+
+    background:#111827;
+
+    border:1px solid rgba(255,255,255,.08);
+
+    color:white;
+
+    outline:none;
+
+}
+
+/* ===========================================
+   TABLE CARD
+=========================================== */
+
+.inventory-table-card{
+
+    background:#111827;
+
+    border:1px solid rgba(255,255,255,.08);
+
+    border-radius:22px;
+
+    padding:28px;
+
+    overflow:hidden;
+
+    box-shadow:0 20px 40px rgba(0,0,0,.15);
+
+}
+
+.table-wrapper{
+
+    width:100%;
+
+    overflow-x:auto;
+
+}
+
+.inventory-table-card table{
+
+    width:100%;
+
+    min-width:1300px;
+
+    border-collapse:collapse;
+
+}
+
+.inventory-table-card thead{
+
+    background:#1e293b;
+
+}
+
+.inventory-table-card th{
+
+    padding:18px;
+
+    color:#cbd5e1;
+
+    text-align:left;
+
+    font-size:14px;
+
+    font-weight:700;
+
+    border-bottom:1px solid rgba(255,255,255,.08);
+
+}
+
+.inventory-table-card td{
+
+    padding:18px;
+
+    color:#000000;
+
+    border-bottom:1px solid rgba(255,255,255,.05);
+
+    vertical-align:middle;
+
+}
+
+.inventory-table-card tbody tr{
+
+    transition:.25s;
+
+}
+
+.inventory-table-card tbody tr:hover{
+
+    background:#1e293b;
+
+}
+
+/* ===========================================
+   PRODUCT IMAGE
+=========================================== */
+
+.inventory-image{
+
+    width:60px;
+
+    height:60px;
+
+    object-fit:cover;
+
+    border-radius:12px;
+
+    border:1px solid rgba(255,255,255,.08);
+
+}
+
+.no-image{
+
+    width:60px;
+
+    height:60px;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    border-radius:12px;
+
+    background:#1e293b;
+
+    color:#94a3b8;
+
+    font-size:11px;
+
+    text-align:center;
+
+}
+
+/* ===========================================
+   STATUS BADGES
+=========================================== */
+
+.status-badge{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    min-width:120px;
+
+    padding:8px 14px;
+
+    border-radius:30px;
+
+    font-size:13px;
+
+    font-weight:700;
+
+}
+
+.in-stock{
+
+    background:rgba(34,197,94,.15);
+
+    color:#4ade80;
+
+}
+
+.low-stock{
+
+    background:rgba(245,158,11,.18);
+
+    color:#facc15;
+
+}
+
+.out-stock{
+
+    background:rgba(239,68,68,.15);
+
+    color:#f87171;
+
+}
+
+/* ===========================================
+   ACTION BUTTON
+=========================================== */
+
+.edit-btn{
+
+    width:42px;
+
+    height:42px;
+
+    border:none;
+
+    border-radius:12px;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    cursor:pointer;
+
+    background:#2563eb;
+
+    color:white;
+
+    transition:.3s;
+
+}
+
+.edit-btn:hover{
+
+    background:#1d4ed8;
+
+    transform:translateY(-2px);
+
+}
+
+/* ===========================================
+   EMPTY STATE
+=========================================== */
+
+.empty-row{
+
+    padding:45px;
+
+    text-align:center;
+
+    color:#94a3b8;
+
+    font-size:16px;
+
+}
+/* ===========================================
+   SCROLLBAR
+=========================================== */
+
+.table-wrapper::-webkit-scrollbar{
+
+    height:8px;
+
+}
+
+.table-wrapper::-webkit-scrollbar-track{
+
+    background:#111827;
+
+}
+
+.table-wrapper::-webkit-scrollbar-thumb{
+
+    background:#475569;
+
+    border-radius:20px;
+
+}
+
+.table-wrapper::-webkit-scrollbar-thumb:hover{
+
+    background:#64748b;
+
+}
+
+/* ===========================================
+   RESPONSIVE
+=========================================== */
+
+@media (max-width:1200px){
+
+    .inventory-stats{
+
+        grid-template-columns:repeat(2,1fr);
+
+    }
+
+}
+
+@media (max-width:992px){
+
+    .inventory-page{
+
+        padding:20px;
+
+    }
+
+    .inventory-header{
+
+        flex-direction:column;
+
+        align-items:flex-start;
+
+    }
+
+    .inventory-toolbar{
+
+        flex-direction:column;
+
+        align-items:stretch;
+
+    }
+
+    .search-box{
+
+        width:100%;
+
+    }
+
+    .filter-box{
+
+        width:100%;
+
+    }
+
+    .filter-box select{
+
+        width:100%;
+
+    }
+
+}
+
+@media (max-width:768px){
+
+    .inventory-stats{
+
+        grid-template-columns:1fr;
+
+    }
+
+    .inventory-header h1{
+
+        font-size:30px;
+
+    }
+
+    .inventory-card{
+
+        padding:22px;
+
+    }
+
+    .inventory-card h2{
+
+        font-size:28px;
+
+    }
+
+    .inventory-table-card{
+
+        padding:18px;
+
+    }
+
+}
+
+@media (max-width:480px){
+
+    .inventory-page{
+
+        padding:15px;
+
+    }
+
+    .inventory-header h1{
+
+        font-size:26px;
+
+    }
+
+    .inventory-image{
+
+        width:50px;
+
+        height:50px;
+
+    }
+
+    .no-image{
+
+        width:50px;
+
+        height:50px;
+
+        font-size:10px;
+
+    }
+
+}
+
+/* ===========================================
+   ANIMATIONS
+=========================================== */
+
+.inventory-card,
+
+.inventory-table-card{
+
+    animation:fadeUp .45s ease;
+
+}
+
+@keyframes fadeUp{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(20px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+}
+
+/* ===========================================
+   OPTIONAL VALUE COLORS
+=========================================== */
+
+.inventory-table-card td:nth-child(6),
+
+.inventory-table-card td:nth-child(7),
+
+.inventory-table-card td:nth-child(9){
+
+    font-weight:600;
+
+    color:#4ade80;
+
+}
+
+/* ===========================================
+   IMAGE HOVER
+=========================================== */
+
+.inventory-image{
+
+    transition:.3s;
+
+}
+
+.inventory-image:hover{
+
+    transform:scale(1.08);
+
+    box-shadow:0 10px 25px rgba(34,197,94,.25);
+
+}
