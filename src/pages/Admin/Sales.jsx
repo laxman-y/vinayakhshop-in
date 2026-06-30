@@ -7,6 +7,7 @@ import {
   useState
 
 } from "react";
+const BASE_URL = import.meta.env.VITE_BASE_URL;
 
 import {
 
@@ -176,7 +177,7 @@ function Sales() {
         getSales(),
 
         axios.get(
-          "http://localhost:5000/api/products?page=1&limit=500",
+          `${BASE_URL}/api/products?page=1&limit=500`,
           {
             headers: {
               Authorization: `Bearer ${token}`
@@ -185,7 +186,7 @@ function Sales() {
         ),
 
         axios.get(
-          "http://localhost:5000/api/customers",
+          `${BASE_URL}/api/customers`,
           {
             headers: {
               Authorization: `Bearer ${token}`
