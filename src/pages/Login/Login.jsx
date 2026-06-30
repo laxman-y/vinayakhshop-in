@@ -40,7 +40,7 @@ function Login() {
 
       const res = await axios.post(
 
-        `{BASE_URL}/api/auth/login`,
+        `${BASE_URL}/api/auth/login`,
 
         {
 
