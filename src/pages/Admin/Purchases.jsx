@@ -8,6 +8,7 @@ import {
   Plus,
   Filter
 } from "lucide-react";
+const BASE_URL = import.meta.env.VITE_BASE_URL;
 
 import DeleteModal from "../../components/DeleteModal/DeleteModal";
 
@@ -120,11 +121,11 @@ function Purchases() {
       ] = await Promise.all([
 
         axios.get(
-          "http://localhost:5000/api/products?page=1&limit=500"
+          `${BASE_URL}/api/products?page=1&limit=500`
         ),
 
         axios.get(
-          "http://localhost:5000/api/suppliers"
+          `${BASE_URL}/api/suppliers`
         ),
 
         getPurchases()
