@@ -10,7 +10,7 @@ export const getProducts = async (token) => {
 
     const res = await axios.get(
 
-        `${API}?page=1&limit=50`,
+        `${API}?page=1&limit=500`,
 
         {
 
