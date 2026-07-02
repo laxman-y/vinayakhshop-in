@@ -1,10 +1,18 @@
 import { useEffect, useState } from "react";
+
 import { useNavigate, useParams } from "react-router-dom";
 
+import axios from "axios";
+
 import {
+
     getProductById,
+
     updateProduct
+
 } from "../../services/productService";
+
+const BASE_URL = import.meta.env.VITE_BASE_URL;
 
 function EditProduct() {
 
@@ -14,43 +22,113 @@ function EditProduct() {
 
     const token = localStorage.getItem("token");
 
-    const [loading,setLoading]=useState(true);
+    const [loading, setLoading] = useState(true);
 
-    const [formData,setFormData]=useState(null);
+    const [categories, setCategories] = useState([]);
 
-    useEffect(()=>{
+    const [brands, setBrands] = useState([]);
 
-        loadProduct();
+    const [image, setImage] = useState(null);
 
-    },[]);
+    const [preview, setPreview] = useState("");
 
-    const loadProduct=async()=>{
+    const [formData, setFormData] = useState({
 
-        try{
+        name: "",
 
-            const data=
+        category: "",
 
-                await getProductById(
+        brand: "",
 
-                    id,
+        sku: "",
 
-                    token
+        description: "",
 
-                );
+        purchasePrice: "",
 
-            setFormData(data.product);
+        sellingPrice: "",
+
+        stock: "",
+
+        lowStockAlert: "",
+
+        gst: "",
+
+        supplier: "",
+
+        unit: "Piece",
+
+        barcode: "",
+
+        featured: false,
+
+        warranty: "",
+
+        status: true
+
+    });
+
+    useEffect(() => {
+
+        loadData();
+
+    }, []);
+
+    const loadData = async () => {
+
+        try {
+
+            const [
+
+                productRes,
+
+                categoryRes,
+
+                brandRes
+
+            ] = await Promise.all([
+
+                getProductById(id, token),
+
+                axios.get(`${BASE_URL}/api/categories`),
+
+                axios.get(`${BASE_URL}/api/brands`)
+
+            ]);
+
+            const product = productRes.product;
+
+            setFormData({
+
+                ...product,
+
+                category: product.category?._id || product.category,
+
+                brand: product.brand?._id || product.brand
+
+            });
+
+            if (product.images?.length > 0) {
+
+                setPreview(product.images[0].url);
+
+            }
+
+            setCategories(categoryRes.data.categories);
+
+            setBrands(brandRes.data.brands);
 
         }
 
-        catch(error){
+        catch (error) {
 
             console.log(error);
 
-            alert("Unable to load product");
+            alert("Unable to load product.");
 
         }
 
-        finally{
+        finally {
 
             setLoading(false);
 
@@ -58,9 +136,9 @@ function EditProduct() {
 
     };
 
-    const handleChange=(e)=>{
+    const handleChange = (e) => {
 
-        const{
+        const {
 
             name,
 
@@ -70,39 +148,81 @@ function EditProduct() {
 
             type
 
-        }=e.target;
+        } = e.target;
 
-        setFormData(prev=>({
+        setFormData(prev => ({
 
             ...prev,
 
             [name]:
 
-                type==="checkbox"
+                type === "checkbox"
 
-                ?
+                    ? checked
 
-                checked
-
-                :
-
-                value
+                    : value
 
         }));
 
     };
 
-    const handleSubmit=async(e)=>{
+    const handleImage = (e) => {
+
+        const file = e.target.files[0];
+
+        if (!file) return;
+
+        setImage(file);
+
+        setPreview(URL.createObjectURL(file));
+
+    };
+
+    const handleSubmit = async (e) => {
 
         e.preventDefault();
 
-        try{
+        try {
+
+            let submitData;
+
+            if (image) {
+
+                submitData = new FormData();
+
+                Object.keys(formData).forEach((key) => {
+
+                    submitData.append(
+
+                        key,
+
+                        formData[key]
+
+                    );
+
+                });
+
+                submitData.append(
+
+                    "image",
+
+                    image
+
+                );
+
+            }
+
+            else {
+
+                submitData = formData;
+
+            }
 
             await updateProduct(
 
                 id,
 
-                formData,
+                submitData,
 
                 token
 
@@ -114,27 +234,30 @@ function EditProduct() {
 
             );
 
-            navigate("/admin/products");
+            navigate(
+
+                "/admin/products"
+
+            );
 
         }
 
-        catch(error){
+        catch (error) {
 
             console.log(error);
 
-            alert("Update Failed");
+            alert(
+
+                error.response?.data?.message ||
+
+                "Update Failed"
+
+            );
 
         }
 
     };
-
-    if(loading){
-
-        return <h2>Loading...</h2>;
-
-    }
-
-    return(
+    return (
 
         <div className="add-product-page">
 
@@ -156,7 +279,7 @@ function EditProduct() {
 
                     <p>
 
-                        Update product details.
+                        Update complete product information.
 
                     </p>
 
@@ -164,185 +287,542 @@ function EditProduct() {
 
             </div>
 
-            <form
+            {
 
-                className="product-form"
+                loading
 
-                onSubmit={handleSubmit}
+                    ?
 
-            >
+                    <h2>Loading...</h2>
 
-                <div className="form-grid">
+                    :
 
-                    <div className="form-group">
+                    <form
 
-                        <label>
+                        className="product-form"
 
-                            Product Name
-
-                        </label>
-
-                        <input
-
-                            name="name"
-
-                            value={formData.name}
-
-                            onChange={handleChange}
-
-                        />
-
-                    </div>
-
-                    <div className="form-group">
-
-                        <label>
-
-                            SKU
-
-                        </label>
-
-                        <input
-
-                            name="sku"
-
-                            value={formData.sku}
-
-                            onChange={handleChange}
-
-                        />
-
-                    </div>
-
-                    <div className="form-group">
-
-                        <label>
-
-                            Purchase Price
-
-                        </label>
-
-                        <input
-
-                            type="number"
-
-                            name="purchasePrice"
-
-                            value={formData.purchasePrice}
-
-                            onChange={handleChange}
-
-                        />
-
-                    </div>
-
-                    <div className="form-group">
-
-                        <label>
-
-                            Selling Price
-
-                        </label>
-
-                        <input
-
-                            type="number"
-
-                            name="sellingPrice"
-
-                            value={formData.sellingPrice}
-
-                            onChange={handleChange}
-
-                        />
-
-                    </div>
-
-                    <div className="form-group">
-
-                        <label>
-
-                            Stock
-
-                        </label>
-
-                        <input
-
-                            type="number"
-
-                            name="stock"
-
-                            value={formData.stock}
-
-                            onChange={handleChange}
-
-                        />
-
-                    </div>
-
-                </div>
-
-                <div className="description-section">
-
-                    <label>
-
-                        Description
-
-                    </label>
-
-                    <textarea
-
-                        rows="6"
-
-                        name="description"
-
-                        value={formData.description}
-
-                        onChange={handleChange}
-
-                    />
-
-                </div>
-
-                <div className="button-group">
-
-                    <button
-
-                        type="button"
-
-                        className="cancel-btn"
-
-                        onClick={()=>
-
-                            navigate(
-
-                                "/admin/products"
-
-                            )
-
-                        }
+                        onSubmit={handleSubmit}
 
                     >
 
-                        Cancel
+                        <div className="form-grid">
 
-                    </button>
+                            {/* Product Name */}
 
-                    <button
+                            <div className="form-group">
 
-                        type="submit"
+                                <label>
 
-                        className="save-btn"
+                                    Product Name
 
-                    >
+                                </label>
 
-                        Update Product
+                                <input
 
-                    </button>
+                                    type="text"
 
-                </div>
+                                    name="name"
 
-            </form>
+                                    value={formData.name}
+
+                                    onChange={handleChange}
+
+                                    required
+
+                                />
+
+                            </div>
+
+                            {/* Category */}
+
+                            <div className="form-group">
+
+                                <label>
+
+                                    Category
+
+                                </label>
+
+                                <select
+
+                                    name="category"
+
+                                    value={formData.category}
+
+                                    onChange={handleChange}
+
+                                    required
+
+                                >
+
+                                    <option value="">
+
+                                        Select Category
+
+                                    </option>
+
+                                    {
+
+                                        categories.map(category => (
+
+                                            <option
+
+                                                key={category._id}
+
+                                                value={category._id}
+
+                                            >
+
+                                                {category.name}
+
+                                            </option>
+
+                                        ))
+
+                                    }
+
+                                </select>
+
+                            </div>
+
+                            {/* Brand */}
+
+                            <div className="form-group">
+
+                                <label>
+
+                                    Brand
+
+                                </label>
+
+                                <select
+
+                                    name="brand"
+
+                                    value={formData.brand}
+
+                                    onChange={handleChange}
+
+                                >
+
+                                    <option value="">
+
+                                        Select Brand
+
+                                    </option>
+
+                                    {
+
+                                        brands.map(brand => (
+
+                                            <option
+
+                                                key={brand._id}
+
+                                                value={brand._id}
+
+                                            >
+
+                                                {brand.name}
+
+                                            </option>
+
+                                        ))
+
+                                    }
+
+                                </select>
+
+                            </div>
+
+                            {/* SKU */}
+
+                            <div className="form-group">
+
+                                <label>
+
+                                    SKU
+
+                                </label>
+
+                                <input
+
+                                    name="sku"
+
+                                    value={formData.sku}
+
+                                    onChange={handleChange}
+
+                                />
+
+                            </div>
+
+                            {/* Purchase Price */}
+
+                            <div className="form-group">
+
+                                <label>
+
+                                    Purchase Price
+
+                                </label>
+
+                                <input
+
+                                    type="number"
+
+                                    name="purchasePrice"
+
+                                    value={formData.purchasePrice}
+
+                                    onChange={handleChange}
+
+                                />
+
+                            </div>
+
+                            {/* Selling Price */}
+
+                            <div className="form-group">
+
+                                <label>
+
+                                    Selling Price
+
+                                </label>
+
+                                <input
+
+                                    type="number"
+
+                                    name="sellingPrice"
+
+                                    value={formData.sellingPrice}
+
+                                    onChange={handleChange}
+
+                                />
+
+                            </div>
+
+                            {/* Stock */}
+
+                            <div className="form-group">
+
+                                <label>
+
+                                    Stock
+
+                                </label>
+
+                                <input
+
+                                    type="number"
+
+                                    name="stock"
+
+                                    value={formData.stock}
+
+                                    onChange={handleChange}
+
+                                />
+
+                            </div>
+
+                            {/* Low Stock */}
+
+                            <div className="form-group">
+
+                                <label>
+
+                                    Low Stock Alert
+
+                                </label>
+
+                                <input
+
+                                    type="number"
+
+                                    name="lowStockAlert"
+
+                                    value={formData.lowStockAlert}
+
+                                    onChange={handleChange}
+
+                                />
+
+                            </div>
+
+                            {/* GST */}
+
+                            <div className="form-group">
+
+                                <label>
+
+                                    GST %
+
+                                </label>
+
+                                <input
+
+                                    type="number"
+
+                                    name="gst"
+
+                                    value={formData.gst}
+
+                                    onChange={handleChange}
+
+                                />
+
+                            </div>
+
+                            {/* Unit */}
+
+                            <div className="form-group">
+
+                                <label>
+
+                                    Unit
+
+                                </label>
+
+                                <input
+
+                                    name="unit"
+
+                                    value={formData.unit}
+
+                                    onChange={handleChange}
+
+                                />
+
+                            </div>
+
+                            {/* Warranty */}
+
+                            <div className="form-group">
+
+                                <label>
+
+                                    Warranty
+
+                                </label>
+
+                                <input
+
+                                    name="warranty"
+
+                                    value={formData.warranty}
+
+                                    onChange={handleChange}
+
+                                />
+
+                            </div>
+
+                            {/* Barcode */}
+
+                            <div className="form-group">
+
+                                <label>
+
+                                    Barcode
+
+                                </label>
+
+                                <input
+
+                                    name="barcode"
+
+                                    value={formData.barcode}
+
+                                    onChange={handleChange}
+
+                                />
+
+                            </div>
+
+                        </div>
+
+                        <div className="description-section">
+
+                            <label>
+
+                                Description
+
+                            </label>
+
+                            <textarea
+
+                                rows="5"
+
+                                name="description"
+
+                                value={formData.description}
+
+                                onChange={handleChange}
+
+                            />
+
+                        </div>
+                        <div className="form-grid">
+
+                            <div className="form-group">
+
+                                <label>
+
+                                    Product Image
+
+                                </label>
+
+                                <input
+
+                                    type="file"
+
+                                    accept="image/*"
+
+                                    onChange={handleImage}
+
+                                />
+
+                            </div>
+
+                            {
+
+                                preview &&
+
+                                <div className="form-group">
+
+                                    <label>
+
+                                        Current Image
+
+                                    </label>
+
+                                    <img
+
+                                        src={preview}
+
+                                        alt="Preview"
+
+                                        style={{
+
+                                            width: 180,
+
+                                            height: 180,
+
+                                            objectFit: "cover",
+
+                                            borderRadius: 10,
+
+                                            border: "1px solid #ddd"
+
+                                        }}
+
+                                    />
+
+                                </div>
+
+                            }
+
+                        </div>
+
+                        <div
+
+                            style={{
+
+                                display: "flex",
+
+                                gap: "30px",
+
+                                marginTop: "20px",
+
+                                marginBottom: "30px"
+
+                            }}
+
+                        >
+
+                            <label>
+
+                                <input
+
+                                    type="checkbox"
+
+                                    name="featured"
+
+                                    checked={formData.featured}
+
+                                    onChange={handleChange}
+
+                                />
+
+                                Featured Product
+
+                            </label>
+
+                            <label>
+
+                                <input
+
+                                    type="checkbox"
+
+                                    name="status"
+
+                                    checked={formData.status}
+
+                                    onChange={handleChange}
+
+                                />
+
+                                Active Product
+
+                            </label>
+
+                        </div>
+
+                        <div className="button-group">
+
+                            <button
+
+                                type="button"
+
+                                className="cancel-btn"
+
+                                onClick={() =>
+
+                                    navigate(
+
+                                        "/admin/products"
+
+                                    )
+
+                                }
+
+                            >
+
+                                Cancel
+
+                            </button>
+
+                            <button
+
+                                type="submit"
+
+                                className="save-btn"
+
+                            >
+
+                                Update Product
+
+                            </button>
+
+                        </div>
+
+                    </form>
+
+            }
 
         </div>
 
