@@ -43,7 +43,7 @@ function AddProduct() {
 
         brand: "",
 
-        sku: "",
+        // sku: "",
 
         description: "",
 
@@ -149,9 +149,9 @@ function AddProduct() {
 
             newErrors.category = "Category required";
 
-        if (!formData.sku.trim())
+        // if (!formData.sku.trim())
 
-            newErrors.sku = "SKU required";
+        //     newErrors.sku = "SKU required";
 
         if (!formData.purchasePrice)
 
@@ -353,7 +353,7 @@ function AddProduct() {
 
                     </div>
 
-                    <div className="form-group">
+                    {/* <div className="form-group">
 
                         <label>
 
@@ -385,7 +385,7 @@ function AddProduct() {
 
                         }
 
-                    </div>
+                    </div> */}
 
                     <div className="form-group">
 
