@@ -8,9 +8,10 @@ import {
   Plus,
   Filter
 } from "lucide-react";
-const BASE_URL = import.meta.env.VITE_BASE_URL;
 
 import DeleteModal from "../../components/DeleteModal/DeleteModal";
+
+const BASE_URL = import.meta.env.VITE_BASE_URL;
 
 import {
 
@@ -32,6 +33,8 @@ function Purchases() {
 
   const token =
     localStorage.getItem("token");
+
+  const today = new Date().toISOString().split("T")[0];
 
   const [products, setProducts] =
     useState([]);
@@ -91,6 +94,8 @@ function Purchases() {
       quantity: "",
 
       purchasePrice: "",
+
+      purchaseDate: today,
 
       invoiceNumber: "",
 
@@ -199,7 +204,9 @@ function Purchases() {
     purchases.forEach((purchase) => {
 
       const date =
-        new Date(purchase.createdAt);
+        new Date(
+          purchase.purchaseDate
+        );
 
       if (
 
@@ -376,6 +383,8 @@ function Purchases() {
         quantity: "",
 
         purchasePrice: "",
+
+        purchaseDate: today,
 
         invoiceNumber: "",
 
@@ -728,6 +737,30 @@ function Purchases() {
         >
 
           <div className="form-grid">
+
+            <div className="form-group">
+
+              <label>
+
+                Purchase Date
+
+              </label>
+
+              <input
+
+                type="date"
+
+                name="purchaseDate"
+
+                value={formData.purchaseDate}
+
+                onChange={handleChange}
+
+                required
+
+              />
+
+            </div>
 
             <div className="form-group">
 
@@ -1146,10 +1179,10 @@ function Purchases() {
                                 {
 
                                   new Date(
-
-                                    purchase.createdAt
-
-                                  ).toLocaleDateString()
+                                    purchase.purchaseDate
+                                  ).toLocaleDateString(
+                                    "en-IN"
+                                  )
 
                                 }
 
