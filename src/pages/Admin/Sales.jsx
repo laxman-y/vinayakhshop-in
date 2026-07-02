@@ -7,6 +7,7 @@ import {
   useState
 
 } from "react";
+
 const BASE_URL = import.meta.env.VITE_BASE_URL;
 
 import {
@@ -148,6 +149,8 @@ function Sales() {
     discount: 0,
 
     gst: 18,
+
+    saleDate: new Date().toISOString().split("T")[0],
 
     paymentMethod: "Cash",
 
@@ -609,6 +612,20 @@ function Sales() {
         >
 
           <div className="form-grid">
+
+            <div className="form-group">
+
+              <label>Sale Date</label>
+
+              <input
+                type="date"
+                name="saleDate"
+                value={formData.saleDate}
+                onChange={handleChange}
+                required
+              />
+
+            </div>
 
             <div className="form-group">
 
@@ -1216,11 +1233,7 @@ function Sales() {
 
                           {
 
-                            new Date(
-
-                              sale.createdAt
-
-                            ).toLocaleDateString()
+                            new Date(sale.saleDate).toLocaleDateString()
 
                           }
 
@@ -1234,49 +1247,23 @@ function Sales() {
                                 📄
                               </button>
                             </Link>
-                            </div>
+                          </div>
 
-                            <div className="action-buttons">
+                          <div className="action-buttons">
 
-                              <Link
+                            <Link
 
-                                to={`/admin/sales/edit/${sale._id}`}
+                              to={`/admin/sales/edit/${sale._id}`}
 
-                              >
-
-                                <button
-
-                                  className="edit-btn"
-
-                                >
-
-                                  <Pencil
-
-                                    size={16}
-
-                                  />
-
-                                </button>
-
-                              </Link>
+                            >
 
                               <button
 
-                                className="delete-btn"
-
-                                onClick={() =>
-
-                                  openDeleteModal(
-
-                                    sale
-
-                                  )
-
-                                }
+                                className="edit-btn"
 
                               >
 
-                                <Trash2
+                                <Pencil
 
                                   size={16}
 
@@ -1284,7 +1271,33 @@ function Sales() {
 
                               </button>
 
-                            </div>
+                            </Link>
+
+                            <button
+
+                              className="delete-btn"
+
+                              onClick={() =>
+
+                                openDeleteModal(
+
+                                  sale
+
+                                )
+
+                              }
+
+                            >
+
+                              <Trash2
+
+                                size={16}
+
+                              />
+
+                            </button>
+
+                          </div>
 
                         </td>
 
